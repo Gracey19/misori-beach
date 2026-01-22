@@ -90,7 +90,7 @@ export default function Home() {
 
       {/* --- NAVIGATION --- */}
       <nav 
-        className={`flex px-6 md:px-12 transition-all duration-300 fixed top-0 left-4 w-full z-50 ease-in-out ${
+        className={`flex px-6 md:px-12 transition-all duration-300 fixed top-0 left-0 w-full z-50 ease-in-out ${
           isScrolled ? ' py-4' : 'bg-transparent py-8'
         }`}
         style={isScrolled ? {
@@ -98,7 +98,7 @@ export default function Home() {
           WebkitBackdropFilter: 'blur(8px)'
         } : {}}
       >
-        <div className="flex ml-auto gap-4 md:gap-8 text-[4px] md:text-sm font-bold text-pearl items-start -mt-2">
+        <div className="flex ml-auto gap-4 md:gap-8 text-[8px] md:text-sm font-bold text-pearl items-start -mt-2">
           <ul className="flex flex-row gap-2 md:gap-8 whitespace-nowrap">
             <li><a href="#accommodations" className="hover:opacity-70 transition">Accommodations</a></li>
             <li><a href="#dining" className="hover:opacity-70 transition">Dining</a></li>
@@ -205,40 +205,69 @@ export default function Home() {
         </div>
       </section>
       
-      {/* --- CONTACT --- */}
-      <section id="contact" className="bg-[#FDFBF0] py-20 px-8 md:px-24">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-cormorant text-oxblood text-[20px] text-center mb-8 uppercase tracking-wide">Where to Find Us</h2>
-          <hr className="border-t-[0.5px] border-terracotta w-full mb-8" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
-            <div className="flex flex-col gap-10">
-              <div className="font-inter font-medium text-oxblood text-[12px] leading-tight tracking-wide space-y-2">
-                <p>P.O BOX 5164 - 40100</p>
-                <p>SIAYA COUNTY, KENYA</p>
-                <p>TEL: 0710323295</p>
-                <p>EMAIL: Info@misoribeachresort.com</p>
-              </div>
-              <div className="space-y-4">
-                <h3 className="font-inter font-bold text-oxblood tracking-widest text-[12px]">SIGN UP FOR SPECIAL OFFERS</h3>
-                <div className="flex flex-col gap-4 max-w-sm">
-                  <input type="email" placeholder="Email" className="bg-transparent border border-oxblood/30 px-4 py-3 text-oxblood focus:outline-none focus:border-oxblood placeholder:text-oxblood/50" />
-                  <button className="bg-[#A6603E] text-pearl py-3 px-8 flex items-center justify-center gap-1 uppercase font-regular tracking-[0.2em] text-sm hover:brightness-90 transition duration-300">
-                    Send <span className="text-xs">❯</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col items-start md:items-end md:text-right">
-              <h3 className="font-inter font-bold text-oxblood uppercase tracking-widest text-sm md:text-base mb-6">Follow our socials</h3>
-              <div className="flex gap-5">
-                <a href="#" className="w-14 h-14 transition-transform hover:scale-110"><img src="/images/facebook_icon-icons.com_53612.svg" alt="Facebook" className="w-full h-full object-contain" /></a>
-                <a href="https://www.instagram.com/misoribeachresort/" className="w-14 h-14 transition-transform hover:scale-110"><img src="/images/instagram.svg" alt="Instagram" className="w-full h-full object-contain" /></a>
-                <a href="https://wa.me/254710323295" target="_blank" rel="noopener noreferrer" className="w-14 h-14 transition-transform hover:scale-110"><img src="/images/whatsapp_icon.svg" alt="WhatsApp" className="w-full h-full object-contain" /></a>
-              </div>
-            </div>
-          </div>
+      {/* --- CONTACT SECTION --- */}
+<section id="contact" className="bg-[#FDFBF0] py-20 px-8 md:px-24">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="font-cormorant text-oxblood text-[20px] text-center mb-8 uppercase tracking-wide">Where to Find Us</h2>
+    <hr className="border-t-[0.5px] border-terracotta w-full mb-8" />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+      <div className="flex flex-col gap-10">
+        <div className="font-inter font-medium text-oxblood text-[12px] leading-tight tracking-wide space-y-2">
+          <p>P.O BOX 5164 - 40100</p>
+          <p>SIAYA COUNTY, KENYA</p>
+          <p>TEL: 0710323295</p>
+          <p>EMAIL: Info@misoribeachresort.com</p>
         </div>
-      </section>
+        
+        {/* --- CONTACT SECTION - SIGN UP BLOCK --- */}
+<div className="space-y-4">
+  <h3 className="font-inter font-bold text-oxblood tracking-widest text-[12px]">SIGN UP FOR SPECIAL OFFERS</h3>
+  
+  <form 
+    onSubmit={(e) => {
+      e.preventDefault();
+      const emailInput = e.target.email;
+      const emailValue = emailInput.value;
+
+      if (!emailValue) return;
+
+      // 1. Open the email client
+      window.location.href = `mailto:Info@misoribeachresort.com?subject=Newsletter Signup&body=Please sign me up. My email is: ${emailValue}`;
+
+      // 2. Clear the input box immediately
+      e.target.reset(); 
+    }}
+    className="flex flex-col gap-4 max-w-sm"
+  >
+    <input 
+      name="email"
+      type="email" 
+      required
+      placeholder="Email Address" 
+      className="bg-transparent border border-oxblood/30 px-4 py-3 text-oxblood focus:outline-none focus:border-oxblood placeholder:text-oxblood/50" 
+    />
+    <button 
+      type="submit"
+      className="bg-[#A6603E] text-pearl py-3 px-8 flex items-center justify-center gap-1 uppercase font-regular tracking-[0.2em] text-sm hover:brightness-90 transition duration-300"
+    >
+      Send <span className="text-xs">❯</span>
+    </button>
+  </form>
+
+    </div>
+      </div>
+
+      <div className="flex flex-col items-start md:items-end md:text-right">
+        <h3 className="font-inter font-bold text-oxblood uppercase tracking-widest text-sm md:text-base mb-6">Follow our socials</h3>
+        <div className="flex gap-5">
+          <a href="#" className="w-14 h-14 transition-transform hover:scale-110"><img src="/images/facebook_icon-icons.com_53612.svg" alt="Facebook" className="w-full h-full object-contain" /></a>
+          <a href="https://www.instagram.com/misoribeachresort/" className="w-14 h-14 transition-transform hover:scale-110"><img src="/images/instagram.svg" alt="Instagram" className="w-full h-full object-contain" /></a>
+          <a href="https://wa.me/254710323295" target="_blank" rel="noopener noreferrer" className="w-14 h-14 transition-transform hover:scale-110"><img src="/images/whatsapp_icon.svg" alt="WhatsApp" className="w-full h-full object-contain" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     </div>
   );

@@ -72,6 +72,34 @@ Precision Nudging: Applied pt-3 to the <ul> link list to manually align the base
 
 Layering: Verified z-index hierarchy to ensure the menu overlay sits at z-[100], clearing both the fixed navbar and the sliding header arrows.
 
+8. Structural Refactoring of Mosaic Grid (Mobile/Desktop Alignment)
+Problem: When viewing the food mosaic on different screen sizes or rotating mobile devices, the decorative border lines would "drift" or extend outside the boundaries of the images. This happened because the borders were pinned to a container that was stretching wider than the image itself.
+
+Solution: Implemented a "Shrink-Wrap" Container Architecture.
+
+Logic: Moved all fixed width and height utility classes (w-18, h-16, etc.) from the <img> tags directly onto their parent relative div containers.
+
+Result: Since the parent div now defines the exact pixel dimensions, the absolute border overlays are strictly constrained to the image edges. Setting images to w-full h-full object-cover ensures they fill this "lock-box" perfectly regardless of screen rotation.
+
+9. Responsive "Inset" Calibration
+Problem: The inset-3 spacing (12px) for decorative borders looked great on desktop but felt too "crowded" on tiny mobile images, often obscuring the food subjects.
+
+Solution: Applied Responsive Inset Utilities.
+
+Used inset-1 md:inset-3. This reduced the border padding to 4px on mobile devices, maintaining the "high-end" look without suffocating the smaller image assets.
+
+10. Background Email Integration (EmailJS)
+Problem: The initial mailto: form required users to have a local email client (like Outlook or Apple Mail) configured. If no app was set up, the "Send" button appeared "dead." Furthermore, the input field wouldn't clear after a click, leaving the user's data visible.
+
+Solution: Migrated from local mail protocols to a Headless API (EmailJS).
+
+Asynchronous Submission: Integrated the @emailjs/browser library to handle form data via emailjs.sendForm.
+
+State Reset Logic: Wrapped the input in a standard <form> and used a useRef hook. On a successful API response (.then), the e.target.reset() method is triggered, clearing the input field and providing visual confirmation to the user.
+
+UX Feedback: Added a browser alert to confirm "Success," ensuring the user knows their email was transmitted without ever leaving the webpage.
+
+
 ## TECHNICAL SPECS
 
 # React + Vite
