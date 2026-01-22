@@ -29,12 +29,26 @@ Problem: The navbar disappeared when scrolling, and once made fixed, it blocked 
 Solution: Changed navbar positioning from absolute to fixed. To fix the "dead" arrow, I boosted the arrow's z-index to z-[60] and used pointer-events-none on the navbar's outer container to allow clicks to pass through to the slider navigation.
 
 # Day 4
-4. The "Diani Reef" Scroll Effect (Gradient Fade)
+4. Added a Scroll Effect (Gradient Fade)
 Problem: Wanted a scroll listener that turned the navbar into a transparent Oxblood color with a soft fade at the bottom, rather than a hard rectangular edge, while avoiding background blur.
 
 Solution: Combined a scroll event listener (detecting window.scrollY) with an inline CSS linear-gradient.
 
 Gradient logic: linear-gradient(to bottom, rgba(74, 16, 16, 0.9) 0%, rgba(74, 16, 16, 0.5) 50%, rgba(74, 16, 16, 0) 100%). This ensures the bottom edge of the navbar is 100% transparent, creating a "soft" transition into the site content.
+
+
+5. Cinematic Horizontal Slide Transition
+Problem: The image swap in the header felt too abrupt (instant change). To achieve a luxury resort aesthetic, I wanted a smooth "sliding" motion between images rather than a simple visibility toggle.
+
+Solution: Re-engineered the header structure from a single div background to a "filmstrip" slider track.
+
+Implemented a flex container with overflow-hidden.
+
+Switched logic to use a numerical index (currentSlide) instead of image strings.
+
+Applied a CSS transform: translateX() animation driven by the slide index.
+
+Used transition-transform duration-700 ease-in-out to create a smooth, premium gliding effect while keeping all hero content perfectly aligned.
 
 
 ## TECHNICAL SPECS
