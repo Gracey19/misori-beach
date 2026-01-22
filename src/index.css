@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --font-cormorant: "Cormorant Garamond", serif;
+  
+  --color-sienna: #6C2513;
+  --color-terracotta: #A75A3C;
+  --color-oxblood: #3B1314;
+  --color-pearl: #F9F5EC;
+}
+
