@@ -50,6 +50,27 @@ Applied a CSS transform: translateX() animation driven by the slide index.
 
 Used transition-transform duration-700 ease-in-out to create a smooth, premium gliding effect while keeping all hero content perfectly aligned.
 
+6. Minimalist Quarter-Screen Navigation Overlay
+
+Problem: The standard horizontal navbar was becoming cluttered, and we needed a dedicated space for secondary navigation that felt high-end and didn't overwhelm the visual field.
+
+Solution: Engineered a side-drawer "Menu State" using a boolean toggle (isMenuOpen).
+
+Dimensions: Constrained the overlay to exactly 25% (w-1/4) of the screen width on desktop to maintain a minimalist, boutique aesthetic.
+
+Styling: Applied a "Pearl" background against "Oxblood" text buttons.
+
+Micro-interactions: Integrated a hover state that transitions text to "Terracotta" (#A6603E) and used translate-x utilities for a smooth slide-in entry from the right.
+
+7. Navbar Alignment & Depth Logic
+
+Problem: Adding the Hamburger icon caused vertical alignment issues (not being on the same line as the text) and created a "collision" with the Hero $H1$ heading.
+
+Solution: * Vertical Correction: Refactored the flex alignment from items-center to items-start on the parent container to pin the navbar to the top, preventing it from dipping into the $H1$ space.
+
+Precision Nudging: Applied pt-3 to the <ul> link list to manually align the baseline of the text with the center-point of the fixed-height Hamburger icon.
+
+Layering: Verified z-index hierarchy to ensure the menu overlay sits at z-[100], clearing both the fixed navbar and the sliding header arrows.
 
 ## TECHNICAL SPECS
 
