@@ -28,24 +28,24 @@ export default function Home() {
       
       {/* --- QUARTER-SCREEN OVERLAY MENU --- */}
       <div 
-        className={`fixed top-0 right-0 h-full w-[24%] md:w-1/4 z-[100] bg-terracotta shadow-2xl transition-transform duration-500 ease-in-out flex flex-col items-center justify-center ${
+        className={`fixed top-0 right-0 h-full w-[50%] md:w-1/4 z-[100] bg-terracotta shadow-2xl transition-transform duration-500 ease-in-out flex flex-col items-center justify-center ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <button 
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-2 right-2 text-pearl text-[12px] text-lg font-light hover:text-oxblood"
+          className="absolute top-2 mt-1.5 right-2 text-pearl text-[12px] text-lg font-light hover:text-oxblood"
         >
           ✕
         </button>
 
-        <nav className="flex flex-col gap-4 text-center ">
+        <nav className="flex flex-col gap-4 text-center mt-8">
           {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replace(' ', '')}`}
               onClick={() => setIsMenuOpen(false)}
-              className="font-inter text-[4px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
+              className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
             >
               {item}
             </a>

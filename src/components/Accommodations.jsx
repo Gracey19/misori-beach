@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Home() {
+export default function Accommodations() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const images = ['header_1.png', 'header_2.png'];
+  const images = ['stolen_hotel.jpg', 'header_2.png'];
+
+  // Room names from your PDF 
+  const roomNames = [
+    "The Lakeside Sanctuary",
+    "The Garden Pavilion",
+    "The Shoreline Suite",
+    "The Sunset Studio"
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,24 +36,24 @@ export default function Home() {
       
       {/* --- QUARTER-SCREEN OVERLAY MENU --- */}
       <div 
-        className={`fixed top-0 right-0 h-full w-[24%] md:w-1/4 z-[100] bg-terracotta shadow-2xl transition-transform duration-500 ease-in-out flex flex-col items-center justify-center ${
+        className={`fixed top-0 right-0 h-full w-[50%] md:w-1/4 z-[100] bg-terracotta shadow-2xl transition-transform duration-500 ease-in-out flex flex-col items-center justify-center ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <button 
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-2 right-2 text-pearl text-[12px] text-lg font-light hover:text-oxblood"
+          className="absolute top-2 mt-1.5 right-2 text-pearl text-[12px] text-lg font-light hover:text-oxblood"
         >
           ✕
         </button>
 
-        <nav className="flex flex-col gap-4 text-center ">
+        <nav className="flex flex-col gap-4 text-center mt-8 ">
           {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replace(' ', '')}`}
               onClick={() => setIsMenuOpen(false)}
-              className="font-inter text-[4px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
+              className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
             >
               {item}
             </a>
@@ -71,15 +79,17 @@ export default function Home() {
         </div>
 
         <div className="absolute inset-0 flex flex-col items-start justify-center text-pearl px-4 md:px-24 text-left pointer-events-none">
-          <h1 className="font-cormorant font-bold text-[12px] md:text-[58px] text-pearl uppercase tracking-[0.15em] mb-4 leading-tight">
-            Experience the Serenity of the Shoreline
+          <h1 className="font-cormorant font-bold text-[12px] md:text-[50px] text-pearl uppercase tracking-[0.1em] mb-4 leading-tight">
+            A SANCTUARY OF SILENCE, WHERE EVERY 
+            DETAIL IS INTENTIONALLY ORGANIZED 
+            FOR YOUR COMFORT
           </h1>
           <div className="relative group pointer-events-auto">
             <a 
               href="#booking" 
               className="w-32 inline-flex justify-center border-2 border-pearl text-pearl py-1 text-[12px] font-medium uppercase tracking-widest hover:bg-oxblood hover:text-pearl transition-all duration-300"
             >
-              Book With Us
+              BOOK A ROOM
             </a>
           </div>
         </div>
@@ -118,90 +128,35 @@ export default function Home() {
 
       {/* --- ACCOMMODATIONS --- */}
       <section id="accommodations" className="bg-[#FDFBF0] py-16 md:py-24 px-8 md:px-24 text-center">
-        <h2 className="font-cormorant text-oxblood text-[12px] md:text-5xl font-bold uppercase -mt-10 mb-2">Karibu Misori Beach Resort!</h2>
-        <div className="max-w-4xl mx-auto space-y-4 text-left">
-          <p className="font-inter text-oxblood/90 text-[8px] md:text-lg leading-relaxed">Arwaki Misori Beach Resort. Situated on the serene banks of Lake Victoria, we have curated an experience where tranquility meets indulgence.</p>
-          <p className="font-inter text-oxblood/90 text-[8px] md:text-xl leading-relaxed">Whether you are seeking a private getaway, a family reunion, or a collaborative team retreat, Misori provides the perfect backdrop for connection.</p>
-          <h2 className="font-cormorant text-oxblood text-[12px] md:text-5xl font-bold mb-2">Accommodations</h2>
-          <p className="font-inter text-oxblood/90 text-[8px] md:text-xl leading-relaxed">Retreat to a space designed for serenity. Our accommodations at Misori beach resort are a blend of modern comfort and organic textures, featuring spacious layouts that invite the lakeside breeze</p>
-          <p className="font-inter text-oxblood/90 text-[8px] md:text-xl leading-relaxed">Wake up to uninterrupted views of the horizon and fall asleep to the gentle rhythm of the water. Every room is more than just a stay, it is a home tailored for your rest.</p>
-          
-          <div className="pt-4">
-            <a 
-              href="#rooms" 
-              className="inline-block border border-oxblood/40 text-oxblood px-6 py-2 text-[8px] md:text-xs uppercase tracking-[0.2em] font-medium hover:bg-oxblood hover:text-pearl transition-all duration-300"
-            >
-              View Rooms
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* --- DINING SECTION --- */}
-      <section id="dining" className="bg-oxblood text-pearl py-16 px-8 md:px-24">
-        <h2 className="font-cormorant text-[12px] md:text-5xl -mt-8 mb-6">Our Dining Table</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          <div className="flex flex-row gap-4">
-            <div className="relative group">
-              <img src="images/mandazi.png" alt="Mandazi" className="w-94 h-20 object-cover" />
-            </div>
-            <p className="font-inter text-lg text-[8px] leading-relaxed max-w-md">
-              With a dedicated Fish Menu designed to honor our lakeside home, you'll discover 
-              the true essence of the lake. It's more than a meal; it's a taste of paradise 
-              tailored just for you.
-            </p>
-          </div>
-
-          <div className="gap-4">
-            <div className="flex flex-row gap-8 mt-4 items-start w-full">
-              <div className="w-9/20 shrink">
-                <p className="font-inter text-sm text-[8px] leading-relaxed">
-                  We've gathered the best of the region for a dining experience rooted in tradition. 
-                  Our kitchen celebrates the vibrant flavors of Kienyeji heritage, ensuring you are 
-                  cared for from sunrise tea to evening stews.
-                </p>
-              </div>
-
-              <div className="w-11/20 grid grid-cols-2 gap-4 items-start shrink-0">
-                <div className="flex flex-col gap-4">
-                  <div className="relative group">
-                    <img src="images/fish.png" alt="Fish" className="w-18 h-16 ml-auto object-cover" />
-                    <div className="absolute inset-3 border-r-2 border-b-2 border-white/60 pointer-events-none"></div>
-                  </div>
-                  <div className="relative group pt-8">
-                    <img src="images/beef.png" alt="Beef" className="w-16 h-20 ml-auto object-cover -mt-8" />
-                    <div className="absolute inset-3 border-l-2 border-b-2 border-white/60 pointer-events-none"></div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                  <div className="relative group">
-                    <img src="images/fries.png" alt="Fries" className="w-16 h-12 object-cover" />
-                    <div className="absolute inset-3 border-l-2 border-t-2 border-white/60 pointer-events-none"></div>
-                  </div>
-                  <div className="relative group">
-                    <img src="images/sausage.png" alt="Sausage" className="w-20 h-24 object-cover" />
-                    <div className="absolute inset-3 border-r-2 border-t-2 border-white/60 pointer-events-none"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h2 className="font-cormorant text-oxblood text-[12px] md:text-5xl font-bold uppercase -mt-10 mb-2">PEACE, COMFORT, INTENTIONALITY </h2>
+        <div className="max-w-4xl mx-auto space-y-4 text-left mb-20">
+          <p className="font-inter text-oxblood/90 text-[8px] md:text-lg leading-relaxed">At Misori, we believe that true rest begins with a clear space. Our rooms are defined by an uncompromising standard of cleanliness and a layout that honors the natural quiet of the shoreline. Positioned just steps from the water’s edge, each room is intentionally organized to strip away the clutter of daily life, leaving you with nothing but the gentle breeze of Lake Victoria and a sense of absolute order.</p>
         </div>
 
-        <div className="flex flex-row gap-4 mt-12 justify-start">
-          <a 
-            href="https://drive.google.com/file/d/12LnplArVOlPYnBFNqHJqyjBnsVuVEiEf/view?usp=sharing" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="border border-pearl/40 px-4 py-2 text-[8px] md:text-xs uppercase tracking-widest hover:bg-pearl hover:text-oxblood transition-all duration-300"
-          >
-            View Menu
-          </a>
-          <a href="https://wa.me/254710323295?text=I%20enquire%20about%20dining" className="bg-[#A6603E] px-4 py-2 text-[8px] md:text-xs uppercase tracking-widest hover:brightness-110 transition-all duration-300">
-            Make Enquiry
-          </a>
+        {/* --- VERTICALLY STACKED ROOMS (FIGMA SPECS) --- */}
+        <div className="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
+          {roomNames.map((name, index) => (
+            <div key={index} className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              
+              {/* Image Container: 793w x 444h | Radius 8 | Shadow 2xl */}
+              <div className="w-full md:w-[793px] aspect-[793/444] bg-terracotta rounded-[8px] shadow-2xl overflow-hidden shrink-0 transition-transform duration-500 hover:scale-[1.01]">
+                <div className="w-full h-full flex items-center justify-center text-pearl/20 font-cormorant italic uppercase tracking-widest text-xs">
+                  {name}
+                </div>
+              </div>
+
+              {/* Text & Button Column */}
+              <div className="flex flex-col items-start gap-4 text-left w-full max-w-sm">
+                <h3 className="font-cormorant text-oxblood text-2xl md:text-3xl uppercase tracking-widest">
+                  {name}
+                </h3>
+                <button className="border border-oxblood px-6 py-2 text-[10px] md:text-xs text-oxblood uppercase tracking-[0.2em] font-medium hover:bg-oxblood hover:text-pearl transition-all duration-300">
+                  BOOK ROOM
+                </button>
+              </div>
+              
+            </div>
+          ))}
         </div>
       </section>
       
