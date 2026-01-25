@@ -99,6 +99,44 @@ State Reset Logic: Wrapped the input in a standard <form> and used a useRef hook
 
 UX Feedback: Added a browser alert to confirm "Success," ensuring the user knows their email was transmitted without ever leaving the webpage.
 
+# Day 5
+
+Development Log: Problems & Solutions
+
+11. CSS Grid vs. Flexbox for Rigid Layouts
+Problem: The room listings (Image + Text/Button) were wrapping incorrectly. On desktop, the text was jumping vertically below the image placeholders instead of sitting to the right, even when using flex-row. This was caused by the large image width (793px) exceeding the available container space on standard laptop resolutions.
+
+Solution: Shifted from a "flexible" layout to a "rigid" grid-based architecture.
+
+Grid Column Control: Implemented grid-cols-1 md:grid-cols-[1.5fr_1fr] and eventually lg:grid-cols-[793px_1fr]. By explicitly defining the first column as 793px, the browser is forced to allocate the remaining space to the text/button block without wrapping.
+
+Alignment: Used items-center on the grid parent to ensure that room titles and buttons remain perfectly centered against the vertical midpoint of the image assets, maintaining the "Absolute Order" design philosophy.
+
+12. Transition to Tailwind CSS v4 Variable System
+Problem: Using standard hex codes in the JSX was making the code cluttered and difficult to maintain. However, custom utility classes like text-oxblood were initially failing because they weren't recognized by the standard Tailwind v3 configuration.
+
+Solution: Implemented the new Tailwind v4 @theme block in the global CSS.
+
+Variable Injection: Defined specific design-system tokens (--color-oxblood: #3B1314;, --color-pearl: #F9F5EC;, etc.) directly in the CSS.
+
+Result: This allowed the use of semantic classes (e.g., bg-terracotta, text-pearl) across the entire project, ensuring brand consistency while keeping the React component logic clean and readable.
+
+13. Component Skeletonization & Deployment Strategy
+Problem: The Accommodations page required a complex layout that wasn't fully polished, but the core navigation and project structure needed to be backed up to prevent data loss.
+
+Solution: Performed a "Skeleton Build" to establish the page hierarchy.
+
+Placeholder Logic: Used aspect-[793/444] containers with bg-terracotta and rounded corners (rounded-[8px]) to represent future high-resolution room photography.
+
+Interactive Buttons: Styled the "BOOK ROOM" call-to-action as an outlined box (border border-oxblood) with a smooth fill transition on hover, rather than a basic text link.
+
+Git Strategy: Pushed the stable "Skeleton" to GitHub with a descriptive commit message ("adjusted menu slider width, built skeleton for accommodations page") to establish a clean restore point before moving into final asset integration.
+
+14. Menu Slider Calibration
+Problem: The navigation overlay was taking up too much screen real estate on smaller desktop views, detracting from the "sanctuary" feel of the site.
+
+Solution: Adjusted the menu width from a standard flex-width to a fixed quarter-screen (25%) constraint on desktop (md:w-1/4), while keeping it at a more usable fixed width (240px) for mobile devices. This ensures the menu remains an "overlay" that doesn't completely hide the beautiful hero imagery.
+
 
 ## TECHNICAL SPECS
 
