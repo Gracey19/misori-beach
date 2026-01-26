@@ -178,6 +178,28 @@ Design Preservation: Maintained the use of standard <a> tags with explicit Tailw
 
 Result: Successfully connected the "Accommodations" intro on the Home page to the dedicated "Sanctuaries" gallery on the new page, ensuring a fluid user journey without visual regressions.
 
+19. Multi-Page Navigation Logic (The Sherlock Holmes Fix)
+Problem: The navigation buttons for "The Lake" were returning users to the Home page or appearing "dead." This happened because the menu logic was still using "Hashtag" paths (#lake) which only work on the same page, rather than "Route" paths (/lake).
+
+Solution: Refactored the Menu map function to include explicit path handling for every room in the "Magic Portal Hub."
+
+Logic Synchronization: Updated all page files (Home.jsx, Accommodations.jsx, and The_Lake.jsx) to use a matching if/else block.
+
+Exact Matching: Corrected a case-sensitivity bug where the computer was looking for 'The_lake' (with an underscore) instead of the actual list item 'The Lake'.
+
+Global Sync: Verified that every "door" (link) on every "room" (page) of the site had the correct "address" (href) written on its tag.
+
+20. Glassmorphism Navigation Upgrade
+Problem: The initial scroll-activated gradient began to feel "muddy" and visually cluttered as it overlapped with high-resolution hero imagery.
+
+Solution: Abandoned the linear-gradient fade in favor of a "Frosted Glass" (Glassmorphism) aesthetic.
+
+Frosted Effect: Implemented backdrop-filter: blur(12px) and backgroundColor: rgba(74, 16, 16, 0.9).
+
+Visual Polish: Added a 1px "hairline" bottom border to the fixed navbar to create a clear separation between the UI and the content.
+
+Result: A cleaner, more professional look that maintains text readability while allowing the lakeside colors to "melt" through the navbar.
+
 ## TECHNICAL SPECS
 
 # React + Vite

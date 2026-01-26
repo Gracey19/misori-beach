@@ -48,31 +48,32 @@ export default function Accommodations() {
         </button>
 
         <nav className="flex flex-col gap-4 text-center mt-8 ">
-  {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => {
-    let myHref = "";
-    
-    // If it's the home page, just go to "/"
-    if (item === 'Home') myHref = "/";
-    
-    // If it's accommodations, stay on this page
-    else if (item === 'Accommodations') myHref = "/accommodations";
-    
-    // For EVERYTHING ELSE, go to the Home page FIRST, then find the section
-    else myHref = `/#${item.toLowerCase().replace(' ', '')}`;
+          {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => {
+            let myHref = "";
 
-    return (
-      <a
-        key={item}
-        href={myHref}
-        onClick={() => setIsMenuOpen(false)}
-        className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
-      >
-        {item}
-      </a>
-    );
-  })}
-</nav>
-      </div>
+            if (item === 'Home') {
+              myHref = "/";
+            } else if (item === 'Accommodations') {
+              myHref = "/accommodations";
+            } else if (item === 'The Lake') {
+              myHref = "/lake";
+            } else {
+            // This handles Dining and Contact Us
+              myHref = `/#${item.toLowerCase().replace(' ', '')}`;
+            }
+            return (
+              <a
+                key={item}
+                href={myHref}
+                onClick={() => setIsMenuOpen(false)}
+                className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
+              >
+                {item}
+              </a>
+             );
+           })}
+          </nav>
+        </div>
 
       {/* --- THE SLIDING HEADER SECTION --- */}
       <div className="relative h-screen w-full overflow-hidden bg-black">
@@ -117,8 +118,10 @@ export default function Accommodations() {
           isScrolled ? ' py-4' : 'bg-transparent py-8'
         }`}
         style={isScrolled ? {
-          background: 'linear-gradient(to bottom, rgba(74, 16, 16, 0.8) 0%, rgba(74, 16, 16, 0.4) 70%, rgba(74, 16, 16, 0) 100%)',
-          WebkitBackdropFilter: 'blur(8px)'
+          backgroundColor: 'rgba(74, 16, 16, 0.9)', 
+          backdropFilter: 'blur(12px)',           
+          WebkitBackdropFilter: 'blur(12px)',      
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)' 
         } : {}}
       >
         <div className="flex ml-auto gap-4 md:gap-8 text-[8px] md:text-sm font-bold text-pearl items-start -mt-2">
@@ -160,7 +163,7 @@ export default function Accommodations() {
 
               {/* Text & Button Column */}
               <div className="flex flex-col items-start gap-4 text-left w-full max-w-sm">
-                <h3 className="font-cormorant text-oxblood text-[14px] md:text-3xl uppercase tracking-0.2rem">
+                <h3 className="font-cormorant text-oxblood text-[14px] md:text-3xl uppercase tracking-widest">
                   {name}
                 </h3>
                 <button className="border border-oxblood px-6 py-2 text-[10px] md:text-xs text-oxblood uppercase tracking-[0.2em] font-medium hover:bg-oxblood hover:text-pearl transition-all duration-300">
