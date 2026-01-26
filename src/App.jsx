@@ -1,13 +1,18 @@
-import React from 'react';
-import Home from './components/Home';
-import Accommodations from './components/Accommodations';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Accommodations from './pages/Accommodations';
 
 function App() { 
   return ( 
-    <div style={{ backgroundColor: '#f0f0f0', minHeight: '100vh' }}> 
-      <Home /> 
-      <Accommodations /> 
-    </div> 
+    <Router>
+      <Routes>
+        {/* The "Home" station */}
+        <Route path="/" element={<Home />} />
+        
+        {/* The "Accommodations" station */}
+        <Route path="/accommodations" element={<Accommodations />} />
+      </Routes>
+    </Router> 
   ); 
 }
 

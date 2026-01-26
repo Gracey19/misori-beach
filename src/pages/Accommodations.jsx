@@ -48,17 +48,30 @@ export default function Accommodations() {
         </button>
 
         <nav className="flex flex-col gap-4 text-center mt-8 ">
-          {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '')}`}
-              onClick={() => setIsMenuOpen(false)}
-              className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
+  {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => {
+    let myHref = "";
+    
+    // If it's the home page, just go to "/"
+    if (item === 'Home') myHref = "/";
+    
+    // If it's accommodations, stay on this page
+    else if (item === 'Accommodations') myHref = "/accommodations";
+    
+    // For EVERYTHING ELSE, go to the Home page FIRST, then find the section
+    else myHref = `/#${item.toLowerCase().replace(' ', '')}`;
+
+    return (
+      <a
+        key={item}
+        href={myHref}
+        onClick={() => setIsMenuOpen(false)}
+        className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
+      >
+        {item}
+      </a>
+    );
+  })}
+</nav>
       </div>
 
       {/* --- THE SLIDING HEADER SECTION --- */}
@@ -110,10 +123,10 @@ export default function Accommodations() {
       >
         <div className="flex ml-auto gap-4 md:gap-8 text-[8px] md:text-sm font-bold text-pearl items-start -mt-2">
           <ul className="flex flex-row gap-2 md:gap-8 whitespace-nowrap">
-            <li><a href="#accommodations" className="hover:opacity-70 transition">Accommodations</a></li>
-            <li><a href="#dining" className="hover:opacity-70 transition">Dining</a></li>
-            <li><a href="#lake" className="hover:opacity-70 transition">The Lake</a></li>
-            <li><a href="#contact" className="hover:opacity-70 transition">Contact us</a></li>
+            <li><a href="/accommodations" className="hover:opacity-70 transition">Accommodations</a></li>
+            <li><a href="/dining" className="hover:opacity-70 transition">Dining</a></li>
+            <li><a href="/lake" className="hover:opacity-70 transition">The Lake</a></li>
+            <li><a href="/contact" className="hover:opacity-70 transition">Contact us</a></li>
           </ul>
           <div 
             onClick={() => setIsMenuOpen(true)} 
@@ -147,7 +160,7 @@ export default function Accommodations() {
 
               {/* Text & Button Column */}
               <div className="flex flex-col items-start gap-4 text-left w-full max-w-sm">
-                <h3 className="font-cormorant text-oxblood text-2xl md:text-3xl uppercase tracking-widest">
+                <h3 className="font-cormorant text-oxblood text-[14px] md:text-3xl uppercase tracking-0.2rem">
                   {name}
                 </h3>
                 <button className="border border-oxblood px-6 py-2 text-[10px] md:text-xs text-oxblood uppercase tracking-[0.2em] font-medium hover:bg-oxblood hover:text-pearl transition-all duration-300">

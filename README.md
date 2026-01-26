@@ -137,6 +137,46 @@ Problem: The navigation overlay was taking up too much screen real estate on sma
 
 Solution: Adjusted the menu width from a standard flex-width to a fixed quarter-screen (25%) constraint on desktop (md:w-1/4), while keeping it at a more usable fixed width (240px) for mobile devices. This ensures the menu remains an "overlay" that doesn't completely hide the beautiful hero imagery.
 
+# Day 6
+
+15. Transition from SPA (Single Page) to Multi-Page Architecture
+
+Problem: The homepage was becoming "heavy" with too much specialized content. Combining general resort information with detailed room listings created a cluttered user journey and long scroll times.
+
+Solution: Migrated the project from a single-component structure to a multi-page routing system using react-router-dom.
+
+Folder Restructuring: Created a /pages directory to house Home.jsx and Accommodations.jsx, while reserving the /components directory for global UI elements like the Navigation and Footer.
+
+Logic Separation: Moved the complex room grid logic and unique "Peace, Comfort, Intentionality" messaging entirely into the new Accommodations page to improve site performance and SEO.
+
+16. Cross-Page Navigation & Route Handling
+
+Problem: After moving content to a new URL (/accommodations), the existing navigation links (e.g., #dining) became "broken" when accessed from the new page because the browser was looking for those IDs on the wrong page.
+
+Solution: Refactored the Navigation system to support "Cross-Page Anchoring."
+
+Path Intelligence: Updated the href attributes from simple hash-links (#dining) to absolute paths (/#dining).
+
+Router Integration: Wrapped the entire application in a <BrowserRouter> and defined clear <Routes> in App.js to map URL paths to their respective page components, eliminating the "Blank Screen" error on navigation.
+
+17. Global Menu Logic Syncing
+
+Problem: The quarter-screen menu overlay needed to work identically across different pages without duplicating large blocks of code.
+
+Solution: Integrated dynamic path logic into the menu's .map() function.
+
+Created a conditional check within the loop to swap between internal hash-links and external page routes (e.g., ensuring "Home" always points to / and "Accommodations" always points to /accommodations).
+
+18. Cross-Page Navigation & Link Resolution
+Problem: Buttons like "View Rooms" were using local anchors (href="#rooms"), which only worked if the content was on the same page. Since room details were moved to a separate Accommodations.jsx file, these links became "dead" or led to nowhere.
+
+Solution: Updated the internal routing logic to bridge the gap between separate pages.
+
+Path Redirection: Refactored the href attributes to use absolute paths (e.g., changing #rooms to /accommodations).
+
+Design Preservation: Maintained the use of standard <a> tags with explicit Tailwind utility classes to ensure the high-end boutique aesthetic (tracking, borders, and hover states) remained visually consistent while enabling multi-page travel.
+
+Result: Successfully connected the "Accommodations" intro on the Home page to the dedicated "Sanctuaries" gallery on the new page, ensuring a fluid user journey without visual regressions.
 
 ## TECHNICAL SPECS
 
