@@ -129,7 +129,7 @@ export default function Home() {
       <section id="accommodations" className="bg-[#FDFBF0] py-16 md:py-24 px-8 md:px-24 text-center">
         <h2 className="font-cormorant text-oxblood text-[12px] md:text-5xl font-bold uppercase -mt-10 mb-2">Karibu Misori Beach Resort!</h2>
         <div className="max-w-4xl mx-auto space-y-4 text-left">
-          <p className="font-inter text-oxblood/90 text-[8px] md:text-lg leading-relaxed">Arwaki Misori Beach Resort. Situated on the serene banks of Lake Victoria, we have curated an experience where tranquility meets indulgence.</p>
+          <p className="font-inter text-oxblood/90 text-[8px] md:text-xl leading-relaxed">Arwaki Misori Beach Resort. Situated on the serene banks of Lake Victoria, we have curated an experience where tranquility meets indulgence.</p>
           <p className="font-inter text-oxblood/90 text-[8px] md:text-xl leading-relaxed">Whether you are seeking a private getaway, a family reunion, or a collaborative team retreat, Misori provides the perfect backdrop for connection.</p>
           <h2 className="font-cormorant text-oxblood text-[12px] md:text-5xl font-bold mb-2">Accommodations</h2>
           <p className="font-inter text-oxblood/90 text-[8px] md:text-xl leading-relaxed">Retreat to a space designed for serenity. Our accommodations at Misori beach resort are a blend of modern comfort and organic textures, featuring spacious layouts that invite the lakeside breeze</p>
@@ -154,7 +154,7 @@ export default function Home() {
             <div className="relative group">
               <img src="images/mandazi.png" alt="Mandazi" className="w-94 h-20 object-cover" />
             </div>
-            <p className="font-inter text-lg text-[8px] leading-relaxed max-w-md">
+            <p className="font-inter md:text-xl text-[8px] leading-relaxed max-w-md">
               With a dedicated Fish Menu designed to honor our lakeside home, you'll discover 
               the true essence of the lake. It's more than a meal; it's a taste of paradise 
               tailored just for you.
@@ -163,7 +163,7 @@ export default function Home() {
           <div className="gap-4">
             <div className="flex flex-row gap-8 mt-4 items-start w-full">
               <div className="w-9/20 shrink">
-                <p className="font-inter text-sm text-[8px] leading-relaxed">
+                <p className="font-inter md:text-xl text-[8px] leading-relaxed">
                   We've gathered the best of the region for a dining experience rooted in tradition. 
                   Our kitchen celebrates the vibrant flavors of Kienyeji heritage, ensuring you are 
                   cared for from sunrise tea to evening stews.
