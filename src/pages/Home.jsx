@@ -152,7 +152,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           <div className="flex flex-row gap-4">
             <div className="relative group">
-              <img src="images/mandazi.png" alt="Mandazi" className="w-94 h-20 object-cover" />
+              <img src="images/mandazi.png" alt="Mandazi" className="w-94 h-40 object-cover" />
             </div>
             <p className="font-inter md:text-xl text-[8px] leading-relaxed max-w-md">
               With a dedicated Fish Menu designed to honor our lakeside home, you'll discover 
