@@ -91,8 +91,26 @@ export default function Home() {
           </div>
         </div>
 
-        <div onClick={toggleImage} className="absolute top-1/2 left-0.5 -translate-y-1/2 text-pearl text-1xl opacity-70 cursor-pointer md:block z-60">❮</div>
-        <div onClick={toggleImage} className="absolute top-1/2 right-0.5 -translate-y-1/2 text-pearl text-1xl opacity-70 cursor-pointer md:block z-60">❯</div>
+        {/* Container to force horizontal alignment */}
+<div className="absolute top-1/2 left-0 w-full -translate-y-1/2 flex justify-between px-2 pointer-events-none z-50">
+  
+  {/* Left Arrow */}
+  <button 
+    onClick={toggleImage} 
+    className="pointer-events-auto text-pearl text-4xl md:text-5xl -ml-2 opacity-80 hover:opacity-100 transition-opacity"
+  >
+    ❮
+  </button>
+
+  {/* Right Arrow */}
+  <button 
+    onClick={toggleImage} 
+    className="pointer-events-auto text-pearl text-4xl md:text-5xl opacity-80 hover:opacity-100 transition-opacity"
+  >
+    ❯
+  </button>
+
+</div>
       </div>
 
       {/* --- NAVIGATION --- */}
