@@ -173,21 +173,18 @@ export default function Home() {
                 <div className="flex flex-col gap-4">
                   <div className="relative group">
                     <img src="images/fish.png" alt="Fish" className="w-18 h-16 ml-auto object-cover" />
-                    <div className="absolute inset-3 border-r-2 border-b-2 border-white/60 pointer-events-none"></div>
+                    
                   </div>
                   <div className="relative group pt-8">
                     <img src="images/beef.png" alt="Beef" className="w-16 h-20 ml-auto object-cover -mt-8" />
-                    <div className="absolute inset-3 border-l-2 border-b-2 border-white/60 pointer-events-none"></div>
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
                   <div className="relative group">
                     <img src="images/fries.png" alt="Fries" className="w-16 h-12 object-cover" />
-                    <div className="absolute inset-3 border-l-2 border-t-2 border-white/60 pointer-events-none"></div>
                   </div>
                   <div className="relative group">
                     <img src="images/sausage.png" alt="Sausage" className="w-20 h-24 object-cover" />
-                    <div className="absolute inset-3 border-r-2 border-t-2 border-white/60 pointer-events-none"></div>
                   </div>
                 </div>
               </div>
