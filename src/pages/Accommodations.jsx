@@ -100,26 +100,20 @@ export default function Accommodations() {
             </a>
           </div>
         </div>
-
-        <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 flex justify-between px-2 pointer-events-none z-50">
   
-  {/* Left Arrow */}
-  <button 
-    onClick={toggleImage} 
-    className="pointer-events-auto text-pearl text-4xl md:text-5xl -ml-2 opacity-80 hover:opacity-100 transition-opacity"
-  >
-    ❮
-  </button>
+  {/* Left Arrow - Thin & Elegant */}
+<button onClick={toggleImage} className="absolute top-1/2 left-4 -translate-y-1/2 z-50 text-pearl -ml-6 opacity-60 hover:opacity-100 transition-opacity">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-8 h-8 md:w-12 md:h-12">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+  </svg>
+</button>
 
-  {/* Right Arrow */}
-  <button 
-    onClick={toggleImage} 
-    className="pointer-events-auto text-pearl text-4xl md:text-5xl opacity-80 hover:opacity-100 transition-opacity"
-  >
-    ❯
-  </button>
-
-</div>
+{/* Right Arrow - Thin & Elegant */}
+<button onClick={toggleImage} className="absolute top-1/2 right-4 -translate-y-1/2 z-50 text-pearl opacity-60 hover:opacity-100 transition-opacity">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-8 h-8 md:w-12 md:h-12">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+  </svg>
+</button>
       </div>
 
       {/* --- NAVIGATION --- */}
