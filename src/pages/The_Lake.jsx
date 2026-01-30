@@ -39,33 +39,25 @@ export default function The_Lake () {
           ✕
         </button>
 
-        <nav className="flex flex-col gap-4 text-center mt-8 ">
-          {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => {
-            let myHref = "";
-
-            if (item === 'Home') {
-              myHref = "/";
-            } else if (item === 'Accommodations') {
-              myHref = "/accommodations";
-            } else if (item === 'The Lake') {
-              myHref = "/lake";
-            } else {
-             // This handles Dining and Contact Us
-              myHref = `/#${item.toLowerCase().replace(' ', '')}`;
-            }
-
-            return (
-              <a
-                key={item}
-                href={myHref}
-                onClick={() => setIsMenuOpen(false)}
-                className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
-              >
-                {item}
-              </a>
-             );
-           })}
-          </nav>
+        <nav className="flex flex-col gap-4 text-center mt-8">
+          {/* I added 'us' here to match your main nav list */}
+          {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => (
+           <a
+             key={item}
+             href={
+               item === 'Home' ? "/" : 
+               item === 'Accommodations' ? "/accommodations" : 
+               item === 'The Lake' ? "/lake" : 
+               item === 'Contact us' ? "/contact" : // Now this matches the array string exactly
+               `/#${item.toLowerCase().replace(/\s+/g, '')}`
+             }
+             onClick={() => setIsMenuOpen(false)}
+             className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
+           >
+            {item}
+           </a>
+          ))}
+        </nav>
       </div>
 
       {/* --- THE SLIDING HEADER SECTION --- */}

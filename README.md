@@ -225,6 +225,25 @@ Solution: Implemented Ternary Logic for text and icon colors:
 * Text logic: ``className={`... ${isScrolled ? 'text-pearl' : 'text-oxblood'}`}``
 * Hamburger Sync: Applied the same logic to the menu icon bars, ensuring they flip from Oxblood to Pearl perfectly when the user scrolls, maintaining a 100% accessible UI.
 
+25. Anchor Logic & Hash-Link Resolution
+Problem: The dynamic navigation mapping was generating "ghost" hashes (e.g., /#contactus) because of string-matching inconsistencies between the menu array and the conditional logic. This caused the site to stay on the Home page instead of routing to the dedicated Contact page.
+
+Solution: * Transitioned from Dynamic Mapping to Explicit Hardcoding for core navigation links. This removed the risk of "fallback logic" creating incorrect URLs.
+
+Standardized href paths across all page instances (Home.jsx, Contact.jsx, etc.) to ensure a unified routing experience.
+
+Verified that the Browser's DOM reflects href="/contact" instead of /#contactus, ensuring React Router triggers the correct component mount.
+
+26. Component File Standardization (PascalCase)
+Problem: Mixed naming conventions (contact.jsx vs Contact.jsx) were causing potential case-sensitivity issues on deployment and making imports messy.
+
+Solution: Renamed all page components to PascalCase (Contact.jsx). Updated all import statements and confirmed that the file names match the exported function names, aligning the project with professional React naming standards.
+
+27. Cross-Page Component Sync
+Problem: Edits made to the Navbar on the Contact page weren't reflecting on the Home page, revealing "code duplication" where the Navbar logic was pasted into multiple files.
+
+Solution: Synced the updated "Hardcoded" Navbar across both the Home and Contact pages. (Next Step: Refactor into a single Navbar.jsx component to follow the DRY—Don't Repeat Yourself—principle).
+
 
 
 

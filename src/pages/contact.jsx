@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-const Contact = () => {
+export default function Contact() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const form = useRef();
@@ -45,32 +45,25 @@ const Contact = () => {
           ✕
         </button>
 
-        <nav className="flex flex-col gap-4 text-center mt-8 ">
-          {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => {
-            let myHref = "";
-
-            if (item === 'Home') {
-              myHref = "/";
-            } else if (item === 'Accommodations') {
-              myHref = "/accommodations";
-            } else if (item === 'The Lake') {
-              myHref = "/lake";
-            } else {
-            // This handles Dining and Contact Us
-              myHref = `/#${item.toLowerCase().replace(' ', '')}`;
-            }
-            return (
-              <a
-                key={item}
-                href={myHref}
-                onClick={() => setIsMenuOpen(false)}
-                className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
-              >
-                {item}
-              </a>
-             );
-           })}
-          </nav>
+        <nav className="flex flex-col gap-4 text-center mt-8">
+          {/* I added 'us' here to match your main nav list */}
+          {['Home', 'Accommodations', 'Dining', 'The Lake', 'Contact us'].map((item) => (
+           <a
+             key={item}
+             href={
+               item === 'Home' ? "/" : 
+               item === 'Accommodations' ? "/accommodations" : 
+               item === 'The Lake' ? "/lake" : 
+               item === 'Contact us' ? "/contact" : // Now this matches the array string exactly
+               `/#${item.toLowerCase().replace(/\s+/g, '')}`
+             }
+             onClick={() => setIsMenuOpen(false)}
+             className="font-inter text-[8px] uppercase tracking-[0.4em] text-pearl font-normal hover:text-oxblood transition-colors duration-300"
+           >
+            {item}
+           </a>
+          ))}
+        </nav>
         </div>
 
       {/* --- NAVIGATION --- */}
@@ -165,7 +158,7 @@ const Contact = () => {
 
                 <button 
                   type="submit"
-                  className="bg-oxblood text-pearl py-4 px-12 uppercase tracking-[0.2em] text-xs font-bold hover:bg-terracotta transition duration-300"
+                  className="border-2 border-oxblood text-oxblood py-4 px-12 uppercase tracking-[0.2em] text-xs font-bold hover:bg-terracotta/45 transition duration-300"
                 >
                   Submit Inquiry
                 </button>
@@ -209,6 +202,5 @@ const Contact = () => {
       </section>
     </div>
   );
-};
+}
 
-export default Contact;
