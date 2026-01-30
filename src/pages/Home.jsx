@@ -172,19 +172,19 @@ export default function Home() {
               <div className="w-11/20 grid grid-cols-2 gap-4 items-start shrink-0">
                 <div className="flex flex-col gap-4">
                   <div className="relative group">
-                    <img src="images/fish.png" alt="Fish" className="w-18 h-16 ml-auto object-cover" />
+                    <img src="images/fish.png" alt="Fish" className="w-40 h-30 ml-auto object-cover" />
                     
                   </div>
                   <div className="relative group pt-8">
-                    <img src="images/beef.png" alt="Beef" className="w-16 h-20 ml-auto object-cover -mt-8" />
+                    <img src="images/beef.png" alt="Beef" className="w-36 h-40 ml-auto object-cover -mt-8" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
                   <div className="relative group">
-                    <img src="images/fries.png" alt="Fries" className="w-16 h-12 object-cover" />
+                    <img src="images/fries.png" alt="Fries" className="w-36 h-24 object-cover" />
                   </div>
                   <div className="relative group">
-                    <img src="images/sausage.png" alt="Sausage" className="w-20 h-24 object-cover" />
+                    <img src="images/sausage.png" alt="Sausage" className="w-40 h-46 object-cover" />
                   </div>
                 </div>
               </div>
