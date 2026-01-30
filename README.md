@@ -200,6 +200,34 @@ Visual Polish: Added a 1px "hairline" bottom border to the fixed navbar to creat
 
 Result: A cleaner, more professional look that maintains text readability while allowing the lakeside colors to "melt" through the navbar.
 
+# Day 7: Functional Integration & Contact Architecture
+
+21. Creation of `contact.jsx` & Multi-Page Sync
+* Successfully branched the site architecture by creating a dedicated `contact.jsx` component.
+* Synced the Quarter-Screen Overlay Menu across all pages to ensure the "Universal Navigation" works regardless of which page the guest is on.
+
+22. Transition to Headless Back-end (EmailJS Integration)
+Problem: Traditional "mailto:" links were unprofessional and relied on the user having a desktop email app. We needed a way for guests to send inquiries directly from the site.
+
+Solution: Integrated the @emailjs/browser SDK. 
+* Ref Hook Logic: Utilized the `useRef()` hook to capture form data without causing unnecessary re-renders.
+* Feedback Loop: Implemented `.then()` promises to trigger success alerts and `e.target.reset()` to clear the form, providing a smooth "app-like" user experience.
+
+23. Interactive Geospatial Data (Google Maps API)
+Problem: Users needed to visualize the resort's location in Siaya. 
+
+Solution: Embedded a Google Maps iframe with `loading="lazy"` for performance. Styled it with a 450px fixed height to create a solid "anchor" for the page layout.
+
+24. Adaptive Navbar Logic (The "Smart" Toggle)
+Problem: On the new Contact page, the navbar needed to work over both the light cream background and the dark oxblood scroll-blur.
+
+Solution: Implemented Ternary Logic for text and icon colors:
+* Text logic: ``className={`... ${isScrolled ? 'text-pearl' : 'text-oxblood'}`}``
+* Hamburger Sync: Applied the same logic to the menu icon bars, ensuring they flip from Oxblood to Pearl perfectly when the user scrolls, maintaining a 100% accessible UI.
+
+
+
+
 ## TECHNICAL SPECS
 
 # React + Vite

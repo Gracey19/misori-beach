@@ -69,7 +69,7 @@ export default function Home() {
       </div>
 
       {/* --- THE SLIDING HEADER SECTION --- */}
-      <div className="relative h-screen w-full overflow-hidden bg-black">
+      <div className="relative h-[100dvh] w-full overflow-hidden bg-black">
         <div 
           className="flex h-full w-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -272,4 +272,3 @@ export default function Home() {
     </div>
   );
 }
-
